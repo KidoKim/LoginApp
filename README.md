@@ -9,11 +9,12 @@ Login Application (Spring MVC + Security + Hibernate + etc...)
 
 ## 3. MySQL 설정
 - **SQL 입력(윈도우 기준)**
->시작->모든 프로그램->MySQL->MySQL Server 5.5->The MYSQL Command Line Shell 실행
+> 시작->모든 프로그램->MySQL->MySQL Server 5.5->The MYSQL Command Line Shell 실행
 root로 로그인 후 login_app.sql 파일 내용 복사 후 mysql에 입력
 http://ishyeok.tistory.com/32 참고(또는 구글링)
+> The MYSQL Command Line Shell 안되면 C:\Program Files\MySQL\MySQL Server 5.6\bin 환경변수 path에 추가
 - **Spring에서 MySQL 설정(선택사항. MySQL 사용자 비밀번호가 있는 경우 수정)**
->src/main/resources/database.properties 파일 자신에 맞게 수정
+> src/main/resources/database.properties 파일 자신에 맞게 수정
 
 ## 4. 프로젝트 실행
 프로젝트 폴더(LoginApp) 선택->Run->Run on Server->Run Application by Tomcat7.0 선택 -> http://localhost:8080/login/home 접속 확인
