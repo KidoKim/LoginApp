@@ -8,12 +8,10 @@ CREATE TABLE IF NOT EXISTS users(
   PRIMARY KEY (username)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-INSERT INTO users(username,  enabled, password) VALUES
+INSERT INTO users(username, enabled, password) VALUES
 ('admin', b'1', 'admin@123'),
 ('user', b'1', 'user@123');
---password encode (SHA)
---('user', b'1', '68c9fc4c03dff5d734aab9787b5ea01d7d88aa85'),
---('admin', b'1', '23d42f5f3f66498b2c8ff4c20b8c5ac826e47146'); 
+
 
 CREATE TABLE IF NOT EXISTS user_roles (
   user_role_id int(11) NOT NULL AUTO_INCREMENT,
