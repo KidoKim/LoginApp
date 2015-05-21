@@ -12,6 +12,9 @@ INSERT INTO users(username, enabled, password) VALUES
 ('admin', b'1', 'admin@123'),
 ('user', b'1', 'user@123');
 
+#SHA encoded password for test
+#('user', b'1', '68c9fc4c03dff5d734aab9787b5ea01d7d88aa85'),
+#('admin', b'1', '23d42f5f3f66498b2c8ff4c20b8c5ac826e47146'); 
 
 CREATE TABLE IF NOT EXISTS user_roles (
   user_role_id int(11) NOT NULL AUTO_INCREMENT,
