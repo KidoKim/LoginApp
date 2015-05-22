@@ -3,3 +3,6 @@ target/
 # for intelij
 *.iml
 .idea/
+
+# DATABASE config
+database.properties
