@@ -15,11 +15,11 @@
 				<table>
 					<tr>
 						<td>Username:</td>
-						<td><form:input path="username" /></td>
+						<td><form:input id="form_username" class="form_input" path="username" maxlength="13" /></td>
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td><form:input path="password" type="password"/></td>
+						<td><form:input id="form_password" class="form_input" path="password" maxlength="20" type="password"/></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
@@ -29,6 +29,14 @@
 			</form:form>
 		</div>
 	</center>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(".form_input").keydown(function(event) {
+			<!-- Prevent space(32) key -->
+			if ( event.which == 32) {
+				event.preventDefault();
+			}
+		});
+	</script>
 </body>
 </html>
