@@ -1,4 +1,5 @@
 package com.testing.controller;
+
 import org.apache.log4j.Logger;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,13 +16,14 @@ import com.testing.models.login.Users;
 
 @Controller
 public class LoginController {
-	private static final Logger logger = Logger.getLogger(LoginController.class);
-	 
+	private static final Logger logger = Logger
+			.getLogger(LoginController.class);
+
 	@RequestMapping(value = { "/", "/home" })
 	public String getUserDefault() {
 		return "home";
 	}
-	
+
 	@RequestMapping("/login")
 	public ModelAndView getLoginForm(@ModelAttribute Users users,
 			@RequestParam(value = "error", required = false) String error,
