@@ -51,6 +51,7 @@ public class Users {
 	public String getSHAEncodedPassword(String password) {
 		return new ShaPasswordEncoder().encodePassword(password, null);
 	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
