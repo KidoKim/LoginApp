@@ -2,6 +2,8 @@ package com.testing.controller;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ import com.testing.models.login.Users;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-
+import org.springframework.web.servlet.ModelAndView;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
@@ -39,17 +41,35 @@ public class LoginAppControllerTest {
 		
 		assertEquals(l.getUserDefault(), "home");
 	}
-	
-	@Test
-	public void testcode() {
-		Users u = loginDao.findByUserName("admin");
-	}
 
 	@Test
-	public void getLoginFormTest() {
+	public void SuccessGetLoginFormTest() {
 		LoginController l = new LoginController();
+		String message = "";
 		Users u = loginDao.findByUserName("admin");
-		System.out.println(l.getLoginForm(u, null, null));
+		ModelAndView mav = l.getLoginForm(u, null, null);
+		Map<String, Object> movModel = mav.getModel();
+		assertEquals(movModel.get("message"), message);
+	}
+	
+	@Test
+	public void LogoutGetLoginFormTest() {
+		LoginController l = new LoginController();
+		String message = "Logout successful !";
+		Users u = loginDao.findByUserName("admin");
+		ModelAndView mav = l.getLoginForm(u, null, "logout");
+		Map<String, Object> movModel = mav.getModel();
+		assertEquals(movModel.get("message"), message);
+	}
+	
+	@Test
+	public void ErrorGetLoginFormTest() {
+		LoginController l = new LoginController();
+		String message = "Incorrect username or password !";
+		Users u = loginDao.findByUserName("admin");
+		ModelAndView mav = l.getLoginForm(u, "error", null);
+		Map<String, Object> movModel = mav.getModel();
+		assertEquals(movModel.get("message"), message);
 	}
 	
 	@Test
@@ -66,7 +86,6 @@ public class LoginAppControllerTest {
 	
 	@Test
 	public void getAccessDeniedTest() {
-		LoginController l = new LoginController();
 	}
 
 }
