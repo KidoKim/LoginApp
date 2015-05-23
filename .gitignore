@@ -6,3 +6,4 @@ target/
 
 # DATABASE config
 database.properties
+/.clover/
