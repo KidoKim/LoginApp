@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+import com.testing.controller.LoginController;
 import com.testing.models.login.Users;
 
 public class LoginAppControllerTest {
