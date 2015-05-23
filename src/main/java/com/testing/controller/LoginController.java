@@ -1,12 +1,10 @@
 package com.testing.controller;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,20 +16,9 @@ import com.testing.models.login.Users;
 @Controller
 public class LoginController {
 	private static final Logger logger = Logger.getLogger(LoginController.class);
-	
-	@Autowired
-     private ShaPasswordEncoder passwordEncoder;
 	 
 	@RequestMapping(value = { "/", "/home" })
 	public String getUserDefault() {
-		return "home";
-	}
-	
-	@RequestMapping(value = { "/testencode" })
-	public String testEncode() {
-		String user_password = passwordEncoder.encodePassword("user@123", null);
-	    String admin_password = passwordEncoder.encodePassword("admin@123", null);
-	    logger.info(user_password + "//" + admin_password);
 		return "home";
 	}
 	

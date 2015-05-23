@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+
 @Entity
 @Table(name = "users", catalog = "login_app")
 public class Users {
@@ -37,6 +39,8 @@ public class Users {
 	}
 
 	public String getPassword() {
+		//for test case
+		System.out.println("getPassword() - using SHA : " + getSHAEncodedPassword("user@123"));
 		return password;
 	}
 
@@ -44,6 +48,9 @@ public class Users {
 		this.password = password;
 	}
 
+	public String getSHAEncodedPassword(String password) {
+		return new ShaPasswordEncoder().encodePassword(password, null);
+	}
 	public boolean isEnabled() {
 		return enabled;
 	}
