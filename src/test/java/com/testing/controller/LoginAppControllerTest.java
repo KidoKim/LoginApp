@@ -83,9 +83,5 @@ public class LoginAppControllerTest {
 		LoginController l = new LoginController();
 		assertEquals(l.getUserProfile(), "user");
 	}
-	
-	@Test
-	public void getAccessDeniedTest() {
-	}
 
 }
