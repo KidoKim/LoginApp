@@ -57,8 +57,8 @@ public class LoginAppControllerTest {
 		LoginController l = new LoginController();
 		String message = "Logout successful !";
 		Users u = loginDao.findByUserName("admin");
-		ModelAndView mav = l.getLoginForm(u, null, "logout");
-		Map<String, Object> movModel = mav.getModel();
+		ModelAndView mov = l.getLoginForm(u, null, "logout");
+		Map<String, Object> movModel = mov.getModel();
 		assertEquals(movModel.get("message"), message);
 	}
 	
@@ -67,8 +67,8 @@ public class LoginAppControllerTest {
 		LoginController l = new LoginController();
 		String message = "Incorrect username or password !";
 		Users u = loginDao.findByUserName("admin");
-		ModelAndView mav = l.getLoginForm(u, "error", null);
-		Map<String, Object> movModel = mav.getModel();
+		ModelAndView mov = l.getLoginForm(u, "error", null);
+		Map<String, Object> movModel = mov.getModel();
 		assertEquals(movModel.get("message"), message);
 	}
 	
